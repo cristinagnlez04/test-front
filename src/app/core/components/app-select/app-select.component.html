@@ -1,8 +1,9 @@
 <div class="select">
 
-  <select name="tech" id="tech" class="Rectangle">
-    <option value="angular">Angular</option>
-    <option value="react">React</option>
-    <option value="vue">Vue</option>
+
+  <select class="select" (change)="changeSelect($event)">
+
+    <option *ngFor="let nameTech of nameTechs" [value]="nameTech">{{nameTech}}</option>
+
   </select>
 </div>
