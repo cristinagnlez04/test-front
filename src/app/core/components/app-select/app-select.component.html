@@ -3,8 +3,7 @@
 
   <select class="select" (change)="changeSelect($event)">
 
-
-    <option *ngFor="let nameTech of nameTechs" [value]="nameTech.value">{{nameTech}}</option>
+    <option *ngFor="let nameTech of nameTechs" [value]="nameTech">{{nameTech}}</option>
 
   </select>
 </div>

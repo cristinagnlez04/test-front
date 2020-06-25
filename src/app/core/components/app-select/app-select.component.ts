@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { PostsService } from 'src/app/shared/services/posts.service';
 import { Post } from 'src/app/shared/models/post.model';
+import { FormControl } from '@angular/forms';
 
 
 @Component({
@@ -10,22 +11,19 @@ import { Post } from 'src/app/shared/models/post.model';
   styleUrls: ['./app-select.component.css']
 })
 export class AppSelectComponent implements OnInit {
-
-  nameTechs: any = ['Angular', 'React', 'Vue'];
+  techs = new FormControl();
+  nameTechs: any = ["Angular", "React", "Vue"];
   angularList: Post[];
   reactList: Post[];
   vueList: Post[];
+  selectedTech: string = '';
+
 
   constructor(private _postService: PostsService) { }
 
 
   ngOnInit(): void {
-    this._postService.getPostAngular()
-      .subscribe(data => {
-        this.angularList = data;
-        console.log(this.angularList);
-        console.log("API ANGULAR");
-      })
+
 
     // this._postService.getPostReact()
     //   .subscribe(data => {
@@ -42,12 +40,24 @@ export class AppSelectComponent implements OnInit {
     //   })
   }
 
-  changeSelect(e) {
+  changeSelect(event: any) {
 
+    this.selectedTech = event.target.value;
     console.log("algooooooooo");
-    if (e == "Angular") {
-      console.log(e + 'VALOR e');
+    console.log(this.selectedTech);
+    if (this.selectedTech === "Angular") {
+      console.log(this.selectedTech + 'VALOR TECH');
+      this.getDataAngular();
     }
+  }
+
+  getDataAngular() {
+    this._postService.getPostAngular()
+      .subscribe(data => {
+        this.angularList = data;
+        console.log(this.angularList);
+        console.log("API ANGULAR");
+      })
   }
 
 }

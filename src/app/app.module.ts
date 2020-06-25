@@ -8,6 +8,7 @@ import { PostsService } from './shared/services/posts.service';
 import { AppHeaderComponent } from './shared/components/app-header/app-header.component';
 import { APP_ROUTING } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -20,6 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     CoreModule,
     APP_ROUTING,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [PostsService],
   bootstrap: [AppComponent]
