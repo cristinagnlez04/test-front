@@ -17,7 +17,7 @@ export class AppSelectComponent implements OnInit {
   reactList: Post[];
   vueList: Post[];
   selectedTech: string = '';
-  inf: Post = {};
+  inf: Post;
 
   constructor(private _postService: PostsService) { }
 
@@ -39,26 +39,30 @@ export class AppSelectComponent implements OnInit {
     if (this.selectedTech === "Angular") {
       console.log(this.selectedTech + ' VALOR TECH');
       this.getDataAngular();
-    } else if (this.selectedTech === "React") {
-      this.getDataReact();
-      console.log(this.selectedTech + ' VALOR TECH');
-    } else {
-      this.getDataVue();
     }
+    // else if (this.selectedTech === "React") {
+    //   this.getDataReact();
+    //   console.log(this.selectedTech + ' VALOR TECH');
+    // } else {
+    //   this.getDataVue();
+    // }
   }
 
   getDataAngular() {
     this._postService.getPostAngular()
       .subscribe((data: Post) => {
+        console.log(data);
+        console.log("DATA ANGULAR");
         this.inf = data;
-        console.log(this.inf.author);
-        console.log("API ANGULAR");
+        console.log(this.inf.hits[0].story_url);
+        console.log("URL");
       })
   }
 
   getDataReact() {
     this._postService.getPostReact()
       .subscribe(data => {
+        console.log(data + 'DATA REACT');
         this.reactList = data;
         console.log(this.reactList);
         console.log("API REACT");
