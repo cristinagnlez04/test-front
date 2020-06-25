@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { AppSelectComponent } from './components/app-select/app-select.component';
 import { AppHomeComponent } from './components/app-home/app-home.component';
-import { AppPaginationComponent } from './app-pagination/app-pagination.component';
+import { AppPaginationComponent } from './components/app-pagination/app-pagination.component';
 import { AppPostsComponent } from './components/app-posts/app-posts.component';
 
 @NgModule({
@@ -13,7 +13,6 @@ import { AppPostsComponent } from './components/app-posts/app-posts.component';
     RouterModule
   ],
   declarations: [
-
     AppSelectComponent,
     AppHomeComponent,
     AppPaginationComponent,
