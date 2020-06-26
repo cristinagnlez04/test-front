@@ -11,15 +11,7 @@ export class PostsService {
   constructor(private http: HttpClient) {
   }
 
-  getPostAngular(): Observable<any> {
-    return this.http.get('https://hn.algolia.com/api/v1/search_by_date?query=angular&page=0');
-  }
-
-  getPostReact(): Observable<any> {
-    return this.http.get('https://hn.algolia.com/api/v1/search_by_date?query=reactjs&page=0');
-  }
-
-  getPostVue(): Observable<any> {
-    return this.http.get('https://hn.algolia.com/api/v1/search_by_date?query=vuejs&page=0');
+  getPosts(option: string, pageNumber: any): Observable<any> {
+    return this.http.get(`https://hn.algolia.com/api/v1/search_by_date?query=${option}&page=${pageNumber}`);
   }
 }

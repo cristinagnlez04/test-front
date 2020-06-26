@@ -9,6 +9,7 @@ import { AppHeaderComponent } from './shared/components/app-header/app-header.co
 import { APP_ROUTING } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SelectService } from 'src/app/shared/services/select.service';
 
 
 @NgModule({
@@ -24,7 +25,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [PostsService],
+  providers: [
+    PostsService,
+    SelectService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
