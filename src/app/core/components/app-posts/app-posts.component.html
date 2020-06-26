@@ -1,6 +1,6 @@
-<div class="box">
-  <p>Hora post</p>
-
-  <p>post: {{selectedOption}}</p>
-
+<div class="box" *ngFor="let post of postList">
+  <p>Hora post: {{post.created_at}}</p>
+  <p>autor: {{post.author}}</p>
+  <p>titulo: {{post.story_title}}</p>
+  <p>url: {{post.story_url}}</p>
 </div>

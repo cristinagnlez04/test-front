@@ -10,7 +10,7 @@ import { Post } from 'src/app/shared/interfaces/post.interface';
 })
 export class AppPostsComponent implements OnInit {
   selectedOption: any;
-  inf: Post;
+  postList: Post;
 
   constructor(private _selectService: SelectService, private _postsService: PostsService) { }
 
@@ -26,10 +26,25 @@ export class AppPostsComponent implements OnInit {
 
   getDataPosts(option: string, pageNumber: any) {
     this._postsService.getPosts(option, pageNumber)
-      .subscribe((data: Post) => {
-        this.inf = data;
-        console.log(this.inf.hits[0].story_url);
+      .subscribe((data: any) => {
+        data.hits = data.hits.filter(this.validateData);
+        this.postList = data.hits;
+        console.log(this.postList);
       })
   }
+
+  validateData(elemento) {
+    if ((elemento.author !== "" && elemento.author !== null)
+      && (elemento.story_title !== "" && elemento.story_title !== null)
+      && (elemento.story_url !== "" && elemento.story_url !== null)
+      && (elemento.created_at !== "" && elemento.created_at !== null)
+      && (elemento.objectID !== "" && elemento.objectID !== null)) {
+      console.log(elemento + " ELEMENTO");
+      return elemento;
+    } else {
+      console.log(elemento + " error elemento");
+    }
+  }
+
 
 }
