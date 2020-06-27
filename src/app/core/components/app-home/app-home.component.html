@@ -6,10 +6,10 @@
   </button>
 </section>
 
-<app-select></app-select>
+<app-select *ngIf="showAll"></app-select>
 
-<app-posts></app-posts>
+<app-posts *ngIf="showAll"></app-posts>
 
+<app-posts-favorites *ngIf="!showAll"></app-posts-favorites>
 
-
-<app-pagination></app-pagination>
+<!-- <app-pagination></app-pagination> -->

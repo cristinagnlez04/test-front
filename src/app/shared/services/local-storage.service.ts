@@ -37,6 +37,7 @@ export class LocalStorageService {
     let i;
     let validateKey;
     let obj;
+    let arr = [];
 
     console.log("local storage");
     for (i = 0; i < localStorage.length; i++) {
@@ -46,9 +47,14 @@ export class LocalStorageService {
       if (validateKey) {
         obj = JSON.parse(localStorage.getItem(localStorage.key(i)));
         console.log("obj", obj)
-      }
-    }
+        arr.push(obj);
 
+        console.log("arr", arr);
+
+      }
+
+    }
+    return arr;
   }
 
   validateJson(str) {
@@ -58,6 +64,30 @@ export class LocalStorageService {
       return false;
     }
     return true;
+  }
+
+  saveSelectedOption(option) {
+    let message;
+    try {
+      localStorage.setItem('idSelectOption', option);
+      message = 'success';
+
+    } catch (error) {
+      console.log('error', error);
+      message = 'error';
+    }
+    return message;
+  }
+
+  getSelectedOption() {
+    let message;
+
+    try {
+      message = localStorage.getItem('idSelectOption');
+    } catch (error) {
+      message = '';
+    }
+    return message;
   }
 
 }

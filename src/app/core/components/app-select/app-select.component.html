@@ -1,9 +1,6 @@
-<div class="select">
-
-
-  <select class="select" (change)="changeSelect($event)">
-    <option>Select your news</option>
+<form [formGroup]="form">
+  <select class="select" (change)="changeSelect($event)" formControlName="selTechs">
+    <option value=''>Select your news</option>
     <option *ngFor="let nameTech of nameTechs" [value]="nameTech">{{nameTech}}</option>
-
   </select>
-</div>
+</form>

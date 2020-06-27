@@ -9,17 +9,17 @@ import { PostsService } from 'src/app/shared/services/posts.service';
 })
 export class AppHomeComponent {
 
-
+  showAll: boolean = true;
   constructor() {
 
   }
 
   showAllPosts() {
-
+    this.showAll = true;
   }
 
   showFaves() {
-
+    this.showAll = false;
   }
 
 

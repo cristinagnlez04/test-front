@@ -6,12 +6,15 @@ import { AppHomeComponent } from './components/app-home/app-home.component';
 import { AppPaginationComponent } from './components/app-pagination/app-pagination.component';
 import { AppPostsComponent } from './components/app-posts/app-posts.component';
 import { AppPostsFavoritesComponent } from './components/app-posts-favorites/app-posts-favorites.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
 
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   declarations: [
     AppSelectComponent,

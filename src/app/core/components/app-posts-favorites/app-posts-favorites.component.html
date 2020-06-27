@@ -1,1 +1,8 @@
-<p>app-posts-favorites works!</p>
+<section class="box">
+  <div class="box__post" *ngFor="let post of postList">
+    <p>{{post.created_at | date:'h'}} hours ago by {{post.author}}</p>
+    <p>titulo: {{post.story_title}}</p>
+    <p>url: {{post.story_url}}</p>
+    <button class="box__button_red" (click)="removeFavoritePost(post)"></button>
+  </div>
+</section>
