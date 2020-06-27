@@ -5,6 +5,7 @@ import { AppSelectComponent } from './components/app-select/app-select.component
 import { AppHomeComponent } from './components/app-home/app-home.component';
 import { AppPaginationComponent } from './components/app-pagination/app-pagination.component';
 import { AppPostsComponent } from './components/app-posts/app-posts.component';
+import { AppPostsFavoritesComponent } from './components/app-posts-favorites/app-posts-favorites.component';
 
 @NgModule({
 
@@ -16,7 +17,8 @@ import { AppPostsComponent } from './components/app-posts/app-posts.component';
     AppSelectComponent,
     AppHomeComponent,
     AppPaginationComponent,
-    AppPostsComponent
+    AppPostsComponent,
+    AppPostsFavoritesComponent
   ],
   exports: [
     AppHomeComponent

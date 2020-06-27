@@ -1,8 +1,30 @@
-.box {
+.box__post {
   width: 550px;
-  /* height: 90px; */
   opacity: 0.8;
   border-radius: 6px;
   border: solid 1px #979797;
   background-color: #ffffff;
+}
+
+.box__button_white {
+  background-image: url(/../assets/img/heart-white.svg);
+  background-size: cover;
+  background-position: center;
+  display: inline-block;
+  border: none;
+  height: 40px;
+  width: 44px;
+  padding: 20px;
+  outline: none;
+}
+
+.box__button_red {
+  background-image: url(/../assets/img/heart-red.svg);
+  background-size: cover;
+  background-position: center;
+  display: inline-block;
+  border: none;
+  height: 40px;
+  width: 44px;
+  padding: 20px;
 }

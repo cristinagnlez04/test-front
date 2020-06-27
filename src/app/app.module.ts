@@ -10,12 +10,14 @@ import { APP_ROUTING } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SelectService } from 'src/app/shared/services/select.service';
+import { LocalStorageService } from 'src/app/shared/services/local-storage.service';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    AppHeaderComponent
+    AppHeaderComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -27,7 +29,9 @@ import { SelectService } from 'src/app/shared/services/select.service';
   ],
   providers: [
     PostsService,
-    SelectService
+    SelectService,
+    LocalStorageService
+
   ],
   bootstrap: [AppComponent]
 })

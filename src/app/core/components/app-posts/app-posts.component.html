@@ -1,6 +1,8 @@
-<div class="box" *ngFor="let post of postList">
-  <p>Hora post: {{post.created_at}}</p>
-  <p>autor: {{post.author}}</p>
-  <p>titulo: {{post.story_title}}</p>
-  <p>url: {{post.story_url}}</p>
-</div>
+<section class="box">
+  <div class="box__post" *ngFor="let post of postList">
+    <p>{{post.created_at | date:'h'}} hours ago by {{post.author}}</p>
+    <p>titulo: {{post.story_title}}</p>
+    <p>url: {{post.story_url}}</p>
+    <button class="box__button_white" (click)="saveFavoritePost(post)"></button>
+  </div>
+</section>

@@ -1,12 +1,15 @@
-<button type="button">
-  All</button>
-<button type="button">
-  My faves
-</button>
-
+<section class="button">
+  <button type="button__show" class="button" (click)="showAllPosts()">
+    All</button>
+  <button type="button__show" class="button" (click)="showFaves()">
+    My faves
+  </button>
+</section>
 
 <app-select></app-select>
 
 <app-posts></app-posts>
+
+
 
 <app-pagination></app-pagination>

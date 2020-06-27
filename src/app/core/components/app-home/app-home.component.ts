@@ -14,7 +14,13 @@ export class AppHomeComponent {
 
   }
 
+  showAllPosts() {
 
+  }
+
+  showFaves() {
+
+  }
 
 
 }
