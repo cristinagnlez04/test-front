@@ -1,6 +1,7 @@
 .box {
   display: flex;
   flex-wrap: wrap;
+  padding-top: 8.313rem;
 }
 
 .box__post {
@@ -13,6 +14,7 @@
   background-color: #ffffff;
   margin-top: 10px;
   margin-bottom: 10px;
+  min-height: 90px;
 }
 
 .box__post:nth-child(odd) {
@@ -33,13 +35,21 @@
   line-height: normal;
   letter-spacing: normal;
   color: #767676;
+  padding-left: 26px;
 }
 
 .box__title {
-  width: 27.5rem;
   font-size: 14px;
   font-weight: 500;
   color: #6b6b6b;
+  padding-left: 26px;
+  padding-right: 80px;
+}
+
+.box__clock {
+  position: relative;
+  top: 3px;
+  padding-right: 6px;
 }
 
 .box__like {
@@ -60,6 +70,14 @@
 }
 
 .box__button img {
-  width: 24px;
-  height: 22px;
+  padding-bottom: 35px;
+  padding-top: 33px;
+}
+
+@media (max-width: 576px) {
+  .box__post {
+    width: 100%;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
 }

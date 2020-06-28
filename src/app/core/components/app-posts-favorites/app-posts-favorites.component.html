@@ -1,7 +1,8 @@
 <section class="box">
   <div class="box__post" *ngFor="let post of postList">
     <div class="box__inf">
-      <p class="box__create">{{post.created_at | date:'h'}} hours ago by {{post.author}}</p>
+      <p class="box__create">
+        <img class="box__clock" src="/../assets/img/clock.svg"> {{post.created_at | date:'h'}} hours ago by {{post.author}}</p>
       <p class="box__title">{{post.story_title}}</p>
       <!-- <p>url: {{post.story_url}}</p> -->
     </div>

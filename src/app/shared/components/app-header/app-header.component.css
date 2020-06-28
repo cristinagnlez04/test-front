@@ -2,14 +2,12 @@
   height: 7.125rem;
   padding: 0;
   box-shadow: 0 1px 4px 0 rgba(0, 21, 41, 0.12);
-  background: linear-gradient(to bottom, #ececec -32%, #ffffff 124%);
+  background-image: linear-gradient(to bottom, #ececec -32%, #ffffff 124%);
 }
 
 .container img {
   padding-bottom: 2.75rem;
-  padding-right: 67.625rem;
   padding-top: 2.625rem;
-  padding-left: 9.375rem;
   width: 13rem;
   height: 1.75rem;
 }

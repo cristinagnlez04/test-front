@@ -1,18 +1,31 @@
+.button {
+  width: max-content;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 70px;
+}
+
 .button__show {
   width: 98px;
   height: 31px;
-  border-radius: 2px;
   border: solid 1px #1797ff;
   outline: none;
-  font-family: Roboto;
-  font-size: 16px;
-  font-weight: 500;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.75;
-  letter-spacing: normal;
   text-align: center;
   color: #1797ff;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.button__show:nth-child(1) {
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+  border-right: none;
+}
+
+.button__show:nth-child(2) {
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  border-left: none;
 }
 
 .button__show:hover {

@@ -13,9 +13,16 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class AppSelectComponent implements OnInit {
 
-  nameTechs: any = ["Angular", "React", "Vue"];
+  value: string;
+  name: string;
+  img: string;
+
+  nameTechs: any = [
+    { value: 'Angular', name: 'Angular', img: '/../assets/img/icon-angular.png' },];
   selectedTech: string = '';
   form: FormGroup;
+
+  // "Angular", "React", "Vue"
 
   constructor(private _selectService: SelectService, private _localStorageService: LocalStorageService) {
     this.form = new FormGroup({});

@@ -1,6 +1,12 @@
-<form [formGroup]="form">
-  <select class="select" (change)="changeSelect($event)" formControlName="selTechs">
-    <option value=''>Select your news</option>
-    <option *ngFor="let nameTech of nameTechs" [value]="nameTech">{{nameTech}}</option>
-  </select>
-</form>
+<div class="box">
+  <form [formGroup]="form">
+    <select class="select" (change)="changeSelect($event)" formControlName="selTechs">
+      <option value=''>Select your news</option>
+      <option *ngFor="let nameTech of nameTechs" [value]="nameTech.value">
+        <img src='{{nameTech.img}}'> {{nameTech.name}}
+      </option>
+
+
+    </select>
+  </form>
+</div>
