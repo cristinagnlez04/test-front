@@ -8,10 +8,10 @@ import { PostsService } from './shared/services/posts.service';
 import { AppHeaderComponent } from './shared/components/app-header/app-header.component';
 import { APP_ROUTING } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { SelectService } from 'src/app/shared/services/select.service';
 import { LocalStorageService } from 'src/app/shared/services/local-storage.service';
-import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+
 
 
 @NgModule({
@@ -25,9 +25,8 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     HttpClientModule,
     CoreModule,
     APP_ROUTING,
-    FormsModule,
-    ReactiveFormsModule,
-    InfiniteScrollModule
+
+
   ],
   providers: [
     PostsService,

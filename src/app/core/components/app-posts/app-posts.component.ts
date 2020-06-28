@@ -10,8 +10,11 @@ import { LocalStorageService } from 'src/app/shared/services/local-storage.servi
   styleUrls: ['./app-posts.component.css']
 })
 export class AppPostsComponent implements OnInit {
+  notEmptyPost: boolean = true;
+  notscrolly: boolean = true;
   selectedOption: any;
-  postList: Post;
+  postList = [];
+  pageCount = 0;
 
   constructor(private _selectService: SelectService, private _postsService: PostsService, private _localStorageService: LocalStorageService) { }
 
@@ -20,13 +23,14 @@ export class AppPostsComponent implements OnInit {
       .subscribe((option: any) => {
         this.selectedOption = option;
         console.log(this.selectedOption);
-        this.getDataPosts(this.selectedOption, 0);
+        this.getDataPosts(this.selectedOption, this.pageCount);
       });
   }
 
 
   getDataPosts(option: string, pageNumber: any) {
-    this._postsService.getPosts(option, pageNumber)
+    this.pageCount = 0;
+    this._postsService.getPosts(option, 0)
       .subscribe((data: any) => {
         data.hits = data.hits.filter(this.validateData);
         this.postList = data.hits;
@@ -70,6 +74,42 @@ export class AppPostsComponent implements OnInit {
     } else {
       console.log("Corazón rojo");
     }
+
+  }
+
+  openUrl(url) {
+    window.open(url, '_blank');
+  }
+
+  onScroll() {
+    if (this.notscrolly && this.notEmptyPost) {
+      this.notscrolly = false;
+      this.loadNextPost();
+
+      console.log("Scrolling");
+    }
+  }
+
+  loadNextPost() {
+    this.pageCount++;
+    console.log('this.pageCount', this.pageCount);
+    this.getNextPosts(this.selectedOption, this.pageCount);
+  }
+
+  getNextPosts(option: string, pageNumber: any) {
+    this._postsService.getPosts(option, pageNumber)
+      .subscribe((data: any) => {
+        data.hits = data.hits.filter(this.validateData);
+        this.postList = this.postList.concat(data.hits);
+        console.log(this.postList);
+
+        if (this.postList.length === 0) {
+          this.notEmptyPost = false;
+        }
+
+        this.notscrolly = true;
+      })
+
 
   }
 
