@@ -1,15 +1,18 @@
-<section class="button">
-  <button type="button__show" class="button" (click)="showAllPosts()">
-    All</button>
-  <button type="button__show" class="button" (click)="showFaves()">
-    My faves
-  </button>
-</section>
+<div class="container">
+  <section class="button">
+    <button type="button" class="button__show" (click)="showAllPosts()">
+      All</button>
+    <button type="button" class="button__show" (click)="showFaves()">
+      My faves
+    </button>
+  </section>
 
-<app-select *ngIf="showAll"></app-select>
+  <app-select *ngIf="showAll"></app-select>
 
-<app-posts *ngIf="showAll"></app-posts>
+  <app-posts *ngIf="showAll"></app-posts>
 
-<app-posts-favorites *ngIf="!showAll"></app-posts-favorites>
+  <app-posts-favorites *ngIf="!showAll"></app-posts-favorites>
 
-<!-- <app-pagination></app-pagination> -->
+  <!-- <app-pagination></app-pagination> -->
+
+</div>

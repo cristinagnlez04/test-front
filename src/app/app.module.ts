@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SelectService } from 'src/app/shared/services/select.service';
 import { LocalStorageService } from 'src/app/shared/services/local-storage.service';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { LocalStorageService } from 'src/app/shared/services/local-storage.servi
     CoreModule,
     APP_ROUTING,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    InfiniteScrollModule
   ],
   providers: [
     PostsService,
