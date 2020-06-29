@@ -18,8 +18,6 @@ export class AppPostsFavoritesComponent implements OnInit {
 
   loadFavorites() {
     this.postList = this._localStorageService.loadPostFavorite();
-    console.log("postList", this.postList);
-
   }
 
   removeFavoritePost(post) {

@@ -26,13 +26,13 @@
   font-weight: 500;
 }
 
-.button__show:nth-child(1) {
+.focus.button__show:nth-child(1) {
   border-top-left-radius: 2px;
   border-bottom-left-radius: 2px;
   border-right: none;
 }
 
-.button__show:nth-child(2) {
+.focus.button__show:nth-child(2) {
   border-top-right-radius: 2px;
   border-bottom-right-radius: 2px;
   border-left: none;

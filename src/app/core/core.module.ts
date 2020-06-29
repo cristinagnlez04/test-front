@@ -8,6 +8,7 @@ import { AppPostsFavoritesComponent } from './components/app-posts-favorites/app
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
+
 @NgModule({
 
   imports: [
@@ -15,7 +16,7 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
-    InfiniteScrollModule
+    InfiniteScrollModule,
   ],
   declarations: [
     AppSelectComponent,

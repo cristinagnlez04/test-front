@@ -5,7 +5,6 @@ import { SelectService } from 'src/app/shared/services/select.service';
 import { LocalStorageService } from 'src/app/shared/services/local-storage.service';
 import { FormControl, FormGroup } from '@angular/forms';
 
-
 @Component({
   selector: 'app-select',
   templateUrl: './app-select.component.html',
@@ -35,7 +34,6 @@ export class AppSelectComponent implements OnInit {
     this.selectedTech = event.target.value;
     this._selectService.changeOption(this.selectedTech);
     this._localStorageService.saveSelectedOption(this.selectedTech);
-    console.log(this.selectedTech);
   }
 
 }
