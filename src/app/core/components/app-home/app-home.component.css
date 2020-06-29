@@ -8,6 +8,16 @@
 .button__show {
   width: 98px;
   height: 31px;
+  border: solid 1px #d6d6d6;
+  text-align: center;
+  color: #606060;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.focus {
+  width: 98px;
+  height: 31px;
   border: solid 1px #1797ff;
   outline: none;
   text-align: center;
@@ -16,19 +26,19 @@
   font-weight: 500;
 }
 
-.button__show:nth-child(1) {
+.focus.button__show:nth-child(1) {
   border-top-left-radius: 2px;
   border-bottom-left-radius: 2px;
   border-right: none;
 }
 
-.button__show:nth-child(2) {
+.focus.button__show:nth-child(2) {
   border-top-right-radius: 2px;
   border-bottom-right-radius: 2px;
   border-left: none;
 }
 
 .button__show:hover {
-  border: solid 1px #d6d6d6;
-  color: #606060;
+  border: solid 1px #1797ff;
+  color: #1797ff;
 }

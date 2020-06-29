@@ -1,8 +1,8 @@
 <div class="container">
   <section class="button">
-    <button type="button" class="button__show" (click)="showAllPosts()">
+    <button type="button" class="button__show" (click)="showAllPosts()" [ngClass]="{'focus': showAll}">
       All</button>
-    <button type="button" class="button__show" (click)="showFaves()">
+    <button type="button" class="button__show" (click)="showFaves()" [ngClass]="{'focus': !showAll}">
       My faves
     </button>
   </section>
@@ -12,7 +12,5 @@
   <app-posts *ngIf="showAll"></app-posts>
 
   <app-posts-favorites *ngIf="!showAll"></app-posts-favorites>
-
-  <!-- <app-pagination></app-pagination> -->
 
 </div>

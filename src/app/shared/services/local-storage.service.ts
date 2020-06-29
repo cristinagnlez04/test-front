@@ -14,7 +14,6 @@ export class LocalStorageService {
       message = 'success';
 
     } catch (error) {
-      console.log('error', error);
       message = 'error';
     }
     return message;
@@ -27,7 +26,6 @@ export class LocalStorageService {
       message = 'success';
 
     } catch (error) {
-      console.log('error', error);
       message = 'error';
     }
     return message;
@@ -39,18 +37,12 @@ export class LocalStorageService {
     let obj;
     let arr = [];
 
-    console.log("local storage");
     for (i = 0; i < localStorage.length; i++) {
-      // console.log(localStorage.key(i) + "=[" + localStorage.getItem(localStorage.key(i)) + "]");
       validateKey = this.validateJson(localStorage.getItem(localStorage.key(i)));
 
       if (validateKey) {
         obj = JSON.parse(localStorage.getItem(localStorage.key(i)));
-        console.log("obj", obj)
         arr.push(obj);
-
-        console.log("arr", arr);
-
       }
 
     }
@@ -73,7 +65,6 @@ export class LocalStorageService {
       message = 'success';
 
     } catch (error) {
-      console.log('error', error);
       message = 'error';
     }
     return message;
@@ -95,6 +86,7 @@ export class LocalStorageService {
 
     try {
       message = localStorage.getItem(objectID);
+
     } catch (error) {
       message = '';
     }

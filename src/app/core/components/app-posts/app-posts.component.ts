@@ -23,7 +23,6 @@ export class AppPostsComponent implements OnInit {
     this._selectService.currentOption
       .subscribe((option: any) => {
         this.selectedOption = option;
-        console.log(this.selectedOption);
         this.getDataPosts(this.selectedOption, this.pageCount);
       });
   }
@@ -35,15 +34,24 @@ export class AppPostsComponent implements OnInit {
       .subscribe((data: any) => {
         data.hits = data.hits.filter(this.validateData);
         this.postList = data.hits;
-        console.log(this.postList);
         this.validateExistingFavorite(this.postList);
       })
 
   }
 
   validateExistingFavorite(list) {
-    let algo = this._localStorageService.getPostSaved(list.objectID);
-    console.log('algo', algo);
+    let message;
+
+    for (let i = 0; i < list.length; i++) {
+      message = this._localStorageService.getPostSaved(list[i].objectID);
+
+      if (message == null) {
+        this.postList[i].favorite = false;
+      }
+      else {
+        this.postList[i].favorite = true;
+      }
+    }
   }
 
   validateData(elemento) {
@@ -63,15 +71,11 @@ export class AppPostsComponent implements OnInit {
     let response = this._localStorageService.savePostAsFavorite(post.objectID, postJson);
 
     if (response == 'success') {
-      console.log("Corazón rojo");
       post.favorite = true;
     } else {
       post.favorite = false;
-      console.log("Corazón blanco");
     }
 
-    console.log(post.objectID + " ObjectID");
-    console.log(post + " post");
   }
 
   removeFavoritePost(post) {
@@ -79,11 +83,9 @@ export class AppPostsComponent implements OnInit {
 
     if (response == 'success') {
       post.favorite = false;
-      console.log("Corazón blanco");
 
     } else {
       post.favorite = true;
-      console.log("Corazón rojo");
     }
 
   }
@@ -96,14 +98,11 @@ export class AppPostsComponent implements OnInit {
     if (this.notscrolly && this.notEmptyPost) {
       this.notscrolly = false;
       this.loadNextPost();
-
-      console.log("Scrolling");
     }
   }
 
   loadNextPost() {
     this.pageCount++;
-    console.log('this.pageCount', this.pageCount);
     this.getNextPosts(this.selectedOption, this.pageCount);
   }
 
@@ -112,7 +111,6 @@ export class AppPostsComponent implements OnInit {
       .subscribe((data: any) => {
         data.hits = data.hits.filter(this.validateData);
         this.postList = this.postList.concat(data.hits);
-        console.log(this.postList);
 
         if (this.postList.length === 0) {
           this.notEmptyPost = false;
