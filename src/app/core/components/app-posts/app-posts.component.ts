@@ -16,6 +16,7 @@ export class AppPostsComponent implements OnInit {
   postList = [];
   pageCount = 0;
 
+
   constructor(private _selectService: SelectService, private _postsService: PostsService, private _localStorageService: LocalStorageService) { }
 
   ngOnInit(): void {
@@ -35,7 +36,14 @@ export class AppPostsComponent implements OnInit {
         data.hits = data.hits.filter(this.validateData);
         this.postList = data.hits;
         console.log(this.postList);
+        this.validateExistingFavorite(this.postList);
       })
+
+  }
+
+  validateExistingFavorite(list) {
+    let algo = this._localStorageService.getPostSaved(list.objectID);
+    console.log('algo', algo);
   }
 
   validateData(elemento) {
@@ -46,7 +54,7 @@ export class AppPostsComponent implements OnInit {
       && (elemento.objectID !== "" && elemento.objectID !== null)) {
       return elemento;
     } else {
-      console.log(elemento + "Error element");
+      console.log(elemento + "Element invalid to show");
     }
   }
 
@@ -56,8 +64,9 @@ export class AppPostsComponent implements OnInit {
 
     if (response == 'success') {
       console.log("Corazón rojo");
+      post.favorite = true;
     } else {
-
+      post.favorite = false;
       console.log("Corazón blanco");
     }
 
@@ -68,10 +77,12 @@ export class AppPostsComponent implements OnInit {
   removeFavoritePost(post) {
     let response = this._localStorageService.removePostAsFavorite(post.objectID);
 
-    if (response == 'error') {
+    if (response == 'success') {
+      post.favorite = false;
       console.log("Corazón blanco");
 
     } else {
+      post.favorite = true;
       console.log("Corazón rojo");
     }
 

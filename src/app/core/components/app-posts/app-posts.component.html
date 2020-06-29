@@ -1,5 +1,5 @@
 <div class="search-results" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50" (scrolled)="onScroll()">
-  <section class="box">
+  <section class="box" [ngClass]="['btn', 'btn-primary']">
     <div class="box__post" *ngFor="let post of postList">
       <div class="box__inf" (click)="openUrl(post.story_url)">
 
@@ -9,13 +9,9 @@
       </div>
 
       <div class="box__like">
-        <button class="box__button" (click)="saveFavoritePost(post)">
-          <img src="/../assets/img/heart-white.svg" alt="">
-          <img src="/../assets/img/heart-red.svg" alt="">
-        </button>
-        <button class="box__button" (click)="saveFavoritePost(post)">
-          <img src="/../assets/img/heart-white.svg" alt="">
-          <img src="/../assets/img/heart-red.svg" alt="">
+        <button class="box__button" (click)="post.favorite === true?removeFavoritePost(post):saveFavoritePost(post)">
+          <img [src]="post.favorite === true ? '/../assets/img/heart-red.svg' : '/../assets/img/heart-white.svg'">
+
         </button>
       </div>
     </div>

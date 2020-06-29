@@ -90,4 +90,15 @@ export class LocalStorageService {
     return message;
   }
 
+  getPostSaved(objectID) {
+    let message;
+
+    try {
+      message = localStorage.getItem(objectID);
+    } catch (error) {
+      message = '';
+    }
+    return message;
+  }
+
 }

@@ -3,6 +3,11 @@
   flex-wrap: wrap;
 }
 
+.box div:hover {
+  color: #606060;
+  opacity: 0.5;
+}
+
 .box__post {
   display: flex;
   flex-wrap: wrap;
@@ -74,9 +79,9 @@
 }
 
 @media (max-width: 576px) {
-  .box__post {
+  .box .box__post.box__post {
     width: 100%;
-    margin-left: auto !important;
-    margin-right: auto !important;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
