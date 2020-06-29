@@ -8,6 +8,16 @@
 .button__show {
   width: 98px;
   height: 31px;
+  border: solid 1px #d6d6d6;
+  text-align: center;
+  color: #606060;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.focus {
+  width: 98px;
+  height: 31px;
   border: solid 1px #1797ff;
   outline: none;
   text-align: center;
@@ -29,6 +39,6 @@
 }
 
 .button__show:hover {
-  border: solid 1px #d6d6d6;
-  color: #606060;
+  border: solid 1px #1797ff;
+  color: #1797ff;
 }

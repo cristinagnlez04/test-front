@@ -42,8 +42,21 @@ export class AppPostsComponent implements OnInit {
   }
 
   validateExistingFavorite(list) {
-    let algo = this._localStorageService.getPostSaved(list.objectID);
-    console.log('algo', algo);
+    let message;
+
+    for (let i = 0; i < list.length; i++) {
+      message = this._localStorageService.getPostSaved(list[i].objectID);
+      // console.log(this._localStorageService.getPostSaved(list[i].objectID));
+
+      if (message == null) {
+        this.postList[i].favorite = false;
+        console.log("No existe en la lista de favoritos");
+      }
+      else {
+        console.log("Existe en la lista de favoritos");
+        this.postList[i].favorite = true;
+      }
+    }
   }
 
   validateData(elemento) {

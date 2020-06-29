@@ -95,6 +95,7 @@ export class LocalStorageService {
 
     try {
       message = localStorage.getItem(objectID);
+
     } catch (error) {
       message = '';
     }
